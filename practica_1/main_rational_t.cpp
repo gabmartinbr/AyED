@@ -56,6 +56,11 @@ int main()
   
    cout << "a / b: ";
    a.divide(b).write();
-  
+
+   // MODIFICACION
+    cout << "x < 1? " << (x.is_less_one() ? "true" : "false") << endl;
+    cout << "x > 1? " << (x.is_greater_one() ? "true" : "false") << endl;
+    cout << "x = 1? " << (x.is_equal_one() ? "true" : "false")<< endl;
+
   return 0;
 }

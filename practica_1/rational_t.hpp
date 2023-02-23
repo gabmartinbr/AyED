@@ -51,6 +51,13 @@ public: // elementos publicos
   rational_t substract(const rational_t&); // metodo para restar dos racionales
   rational_t multiply(const rational_t&); // metodo para multiplicar dos racionales
   rational_t divide(const rational_t&); // metodo para dividir dos racionales
+
+  // MODIFICACION
+  // comprobar si un racional es mayor, menor o igual que 1
+  bool is_less_one() const;
+  bool is_greater_one() const;
+  bool is_equal_one() const;
+
     
   void write(ostream& = cout) const; // metodo de salida de numeros racionales
   void read(istream& = cin); // metodo de entrada de numeros racionales

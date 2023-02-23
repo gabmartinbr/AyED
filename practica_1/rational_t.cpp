@@ -54,8 +54,7 @@ bool rational_t::is_equal(const rational_t& r, const double precision) const {  
     // convertir a flotante
     double valor_1 = static_cast<double>(num_) / static_cast<double>(den_);
     double valor_2 = static_cast<double>(r.num_) / static_cast<double>(r.den_);
-    // si la diferencia es menor que la precision es true
-    return (std::fabs(valor_1 - valor_2) < precision);  // std::abs hace el valor absoluto 
+    return (std::fabs(valor_1 - valor_2) < precision);  // std::fabs hace el valor absoluto 
 }
 
 
@@ -74,6 +73,20 @@ bool rational_t::is_less(const rational_t& r, const double precision) const {  /
     return ((valor_2 - valor_1) > precision);
 }
 
+
+bool rational_t::is_less_one() const {
+    return (num_ < den_);
+}
+
+
+bool rational_t::is_greater_one() const {
+return (num_ > den_);
+}
+
+
+bool rational_t::is_equal_one() const {
+  return (num_ == den_);
+}
 
 // operaciones
 rational_t rational_t::add(const rational_t& r) {  // metodo de suma de complejos
