@@ -51,47 +51,32 @@ double rational_t::value() const {  // metodo que devuelve el resultado del num 
 
 // comparaciones
 bool rational_t::is_equal(const rational_t& r, const double precision) const {  // metodo para ver si 2 complejos son iguales
-  if (num_ != r.num_) { //convertir a flotante
-    double a = static_cast<double>(num_) / static_cast<double>(den_);
-    double b = static_cast<double>(r.num_) / static_cast<double>(r.den_);
-
-    //si la diferencia es menor o igual que la precision es true
-    return (std::fabs(a - b) <= precision); // std::abs hace el valor absoluto 
-  } else {
-    return num_ == r.num_;
-  }
+    // convertir a flotante
+    double valor_1 = static_cast<double>(num_) / static_cast<double>(den_);
+    double valor_2 = static_cast<double>(r.num_) / static_cast<double>(r.den_);
+    // si la diferencia es menor que la precision es true
+    return (std::fabs(valor_1 - valor_2) < precision);  // std::abs hace el valor absoluto 
 }
 
 
 bool rational_t::is_greater(const rational_t& r, const double precision) const {  // metodo para ver si uno es mayor que otro
-  if (num_ != r.num_) { //convertir a flotante 
-    double a = static_cast<double>(num_) / static_cast<double>(den_);
-    double b = static_cast<double>(r.num_) / static_cast<double>(r.den_);
-
-    // si la diferencia es menor que la precision es true
-    return ((a - b) >= precision); 
-  } else {
-    return false;
-    }
+    // convertir a flotante 
+    double valor_1 = static_cast<double>(num_) / static_cast<double>(den_);
+    double valor_2 = static_cast<double>(r.num_) / static_cast<double>(r.den_);
+    return ((valor_1 - valor_2) > precision); 
 }
 
 
 bool rational_t::is_less(const rational_t& r, const double precision) const {  // metodo para ver si uno es menor que otro
-  if (num_ != r.num_) { //convertir a flotante
-    double a = static_cast<double>(num_) / static_cast<double>(den_);
-    double b = static_cast<double>(r.num_) / static_cast<double>(r.den_);
-
-    // si la diferencia es menor que precision negativa es true
-    return ((b - a) >= precision);
-  } else {
-    return false;
-  }
+    // convertir a flotante
+    double valor_1 = static_cast<double>(num_) / static_cast<double>(den_);
+    double valor_2 = static_cast<double>(r.num_) / static_cast<double>(r.den_);
+    return ((valor_2 - valor_1) > precision);
 }
 
 
 // operaciones
 rational_t rational_t::add(const rational_t& r) {  // metodo de suma de complejos
-  int a, b, c, d;
   int new_num = (num_ * r.den_) + (den_ * r.num_);
   int new_den = den_ * r.den_;
   rational_t add(new_num, new_den);
