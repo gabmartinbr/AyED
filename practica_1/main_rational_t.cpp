@@ -21,7 +21,7 @@ using namespace std;
 
 int main()
 {
-  rational_t a(1, 2), b(3), c;
+  rational_t a(1, 3), b(3), c;
 
   cout << "a.value()= " << a.value() << endl;
   cout << "b.value()= " << b.value() << endl;
@@ -37,7 +37,7 @@ int main()
   c.write();
 
   // FASE II
-  rational_t x(1, 3), y(1, 3);
+  rational_t x(4, 3), y(1, 3);
    x.write();
    y.write();
    cout << "x == y? " << (x.is_equal(y) ? "true" : "false") << endl;
